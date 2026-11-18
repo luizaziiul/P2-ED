@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo Visual – Árvore Binária de Busca</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Árvore Binária de Busca</h1>
+<p class="sub">Demo visual interativa · inserção, busca e travessias · modo noturno</p>
+
+<div class="card">
+  <div class="row"><label>Cenários</label>
+    <button id="bMed">Caso Médio</button><button id="bPior">Pior Caso (ordenado)</button>
+    <input type="text" id="cv" value="45, 20, 60, 10, 30, 55, 70, 25" aria-label="Valores customizados"><button id="bCus">Customizado</button></div>
+  <div class="row"><label>Operações</label>
+    <input type="number" id="val" value="45" aria-label="Valor">
+    <button id="bIns">Inserir</button><button id="bBus">Buscar</button>
+    <button id="bIn">Inorder</button><button id="bPre">Preorder</button><button id="bPost">Postorder</button>
+    <button id="bCmp">Comparar O(log n) × O(n)</button></div>
+  <div class="row"><label>Execução</label>
+    <button id="bPlay" class="p">▶ Executar</button><button id="bStep">⏭ Próximo passo</button>
+    <button id="bPause">⏸ Pausar</button><button id="bReset">↺ Reiniciar</button>
+    <label for="sp" style="min-width:0;margin-left:8px">Velocidade</label><input type="range" id="sp" min="1" max="10" value="5"></div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <svg id="tree" role="img" aria-label="Árvore binária de busca"></svg>
+    <div class="leg"><span><i style="background:var(--ac);color:var(--ac)"></i>nó atual</span><span><i style="background:var(--bl);color:var(--bl)"></i>caminho / pilha</span><span><i style="background:var(--gr);color:var(--gr)"></i>visitado</span><span><i style="background:var(--pu);color:var(--pu)"></i>inserido / encontrado</span></div>
+  </div>
+  <div class="card">
+    <h2>Passo atual</h2><div id="now">Escolha uma operação.</div>
+    <h2>Métricas</h2><div id="m"></div>
+    <h2>Variáveis auxiliares</h2><div id="v"></div>
+    <h2>Log</h2><ol id="log"></ol>
+  </div>
+</div>
+
+<div class="card" id="cmp" hidden style="margin-top:12px">
+  <h2>Inserção aleatória × ordenada (15 valores)</h2>
+  <div class="two">
+    <div><b>Aleatória: O(log n) esperado</b><svg id="tA"></svg><div id="sA"></div></div>
+    <div><b>Ordenada (degenerada): O(n)</b><svg id="tB"></svg><div id="sB"></div></div>
+  </div>
+  <p id="sum"></p><small>Clique em Comparar de novo para sortear outra ordem aleatória.</small>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
